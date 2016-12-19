@@ -11,6 +11,7 @@ public class Project {
 		this.proid = proid;
 		this.proname = proname;
 	}
+//	
 	public Project() {
 	}
 	public Project(int proid, String proname, Set<Employee> employees) {
