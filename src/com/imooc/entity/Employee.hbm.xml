@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC 
+ "-//Hibernate/Hibernate Mapping DTD//EN"
+ "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd"> 
+
+<hibernate-mapping>
+   <class name="com.imooc.entity.Employee" table="employee">
+   		<id name="empid" column="empid" type="java.lang.Integer">
+   			<generator class="assigned"></generator>
+   		</id>
+   		<property name="empname" type="java.lang.String" >
+   			<column name="empname" length="20" not-null="true"></column>
+   		</property>
+   		<!-- inverse="true"表示反转，维护交由对方 -->
+   		<set name="projects" table="proemp" inverse="true">
+   			<key column="rempid"></key>
+   			<many-to-many class="com.imooc.entity.Project" column="rproid"></many-to-many>
+   		</set>
+   </class>
+</hibernate-mapping>

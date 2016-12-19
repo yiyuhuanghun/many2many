@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE hibernate-configuration SYSTEM 
+"http://www.hibernate.org/dtd/hibernate-configuration-3.0.dtd">
+
+<hibernate-configuration>
+<!-- session-factory就是我们操作数据库时打开的一个连接 -->
+   <session-factory>
+   <property name="hibernate.dialect">
+      org.hibernate.dialect.MySQLDialect
+   </property>
+   <property name="hibernate.connection.driver_class">
+      com.mysql.jdbc.Driver
+   </property>
+
+   <!-- Assume test is the database name -->
+   <property name="hibernate.connection.url">
+      jdbc:mysql://localhost:3306/imooc
+   </property>
+   <property name="hibernate.connection.username">
+      root
+   </property>
+   <property name="hibernate.connection.password">
+      846419
+   </property>
+	<property name="show_sql">true</property><!-- 显示sql语句 -->
+	<property name="format_sql">true</property>
+	<property name="hbm2ddl.auto">update</property>
+   <!-- List of XML mapping files 1.注明表的hbm文件，2.这里有一个隐藏条件，就是hbm文件的名字，
+   XXX，和java bean的名字是完全一样的，这个叫规约（规则约定）-->
+	<mapping resource="com/imooc/entity/Employee.hbm.xml"/>
+	<mapping resource="com/imooc/entity/Project.hbm.xml"/>
+	<!-- <mapping resource="com/imooc/entity/Project.hbm.xml"/> 用于带hbm.xml文件的方式-->
+	<!-- <mapping class="com.imooc.entity.Project"/>用于注解方式的映射。 -->
+</session-factory>
+</hibernate-configuration>
